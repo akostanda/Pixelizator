@@ -1,0 +1,17 @@
+h1 {
+    text-align: center;
+}
+.mainDiv {
+    margin-top: 200px;
+    display: flex;
+    justify-content: center;
+}
+
+body {
+    /*background: linear-gradient(to right, green, yellow, red, blue, green, yellow, red, blue);*/
+    /*background: image(url("ozahirnyi.png"));*/
+    /*background-image: url(ozahirnyi.png) none;*/
+    background: url("resources/bg.jpg") no-repeat;
+    background-size: 100%;
+    -webkit-background-size: 100%;
+}

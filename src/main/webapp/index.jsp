@@ -8,22 +8,22 @@
 </head>
 
 <body>
-    <h1>WOULD YOU LIKE TO PIXILIZE</h1>
-    <div>
-        <h3> Choose the file for uploading </h3>
-        <input type="file">
-        <button id="loadButton">LoadButton</button>
+<h1>WOULD YOU LIKE TO PIXILIZE</h1>
+<div>
+    <h3> Choose the file for uploading </h3>
+    <input type="file">
+    <button id="loadButton">LoadButton</button>
+</div>
+<br>
+<p class="text">Block size: </p>
+<p class="text" id="outNumber">10</p>
+<div class="mainDiv">
+    <div class="loadedImg">
+        <img class="im" id="forInput" src="" alt="RAWIMAGE">
+        <span style="padding: 0px 280px;">&nbsp;</span>
+        <img class="im" id="forOutput" src="" alt="PROCESSEDIMAGE">
     </div>
-    <br>
-    <p class="text">Block size: </p>
-    <p class="text" id="outNumber">10</p>
-    <div class="mainDiv">
-        <div class="loadedImg">
-            <img class="im" id="forInput" src="" alt="rawImage">
-            <span style="padding: 0px 80px;">&nbsp;</span>
-            <img class="im" id="forOutput" src="" alt="processedImage">
-        </div>
-    </div>
-    <script src="javaScript/fetch.js"></script>
+</div>
+<script src="javaScript/fetch.js"></script>
 </body>
 </html>

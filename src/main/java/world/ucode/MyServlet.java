@@ -24,7 +24,7 @@ public class MyServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        System.out.println(0);
         Part filePart = request.getPart("file");
         PrintWriter out;
         String pixSize = request.getHeader("Size");
@@ -38,17 +38,20 @@ public class MyServlet extends HttpServlet {
             String jsonString = gson.toJson(pixelizator.getImageByte());
             response.setContentType("application/json");
             response.setCharacterEncoding("UTF-8");
+            System.out.println(1);
             out.print(jsonString);
             out.close();
+            System.out.println(2);
 
         }
+        System.out.println(3);
     }
 
     public class Pixelizator {
 
         private InputStream fileContent = null;
         private String imageByte = null;
-        //        private Picures pic = null;
+                private Pictures pic = null;
         private BufferedImage img = null;
         private byte[] bytes = null;
         private int pixsize = 1;
@@ -65,12 +68,12 @@ public class MyServlet extends HttpServlet {
                 Pixlate();
                 imageByte = Base64.encodeBase64String(bytes);
             }
-//            pic = new Picures();
-//            pic.setBase64Image(imageStr);
+            pic = new Pictures();
+            pic.setBase64Image(imageByte);
         }
 
-        public String getImageByte() {
-            return imageByte;
+        public Pictures getImageByte() {
+            return pic;
         }
 
         private void Pixlate() throws IOException {

@@ -7,6 +7,39 @@ h1 {
     justify-content: center;
 }
 
+.DownloadBut {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.DownloadBut > * {
+    margin-bottom: 10px;
+    width: fit-content;
+}
+
+.loadedImg {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    /*width: 100%;*/
+    text-align: center;
+}
+#forInput {
+    /*margin-top: 50px;*/
+    vertical-align: top;
+    border: 2px solid grey; /* Параметры границы */
+    background: darkseagreen; /* Цвет фона */
+    padding: 10px; /* Поля вокруг текста */
+}
+#forOutput {
+    /*margin-top: 75px;*/
+    vertical-align: top;
+    border: 2px solid grey; /* Параметры границы */
+    /*background: #fc3; !* Цвет фона *!*/
+    padding: 10px; /* Поля вокруг текста */
+}
+
 body {
     /*background: linear-gradient(to right, green, yellow, red, blue, green, yellow, red, blue);*/
     /*background: image(url("ozahirnyi.png"));*/

@@ -11,12 +11,12 @@
 <h1>WOULD YOU LIKE TO PIXILIZE</h1>
 <div>
     <h3> Choose PNG/JPG file for uploading </h3>
-    <input type="file">
+    <input type="file" value="upload" id="imageUploader" name="file" accept=".jpg, .jpeg, .png" onchange="loadRawImage">
     <button id="loadButton">LoadButton</button>
 </div>
 <br>
 <div>
-    <input type="range" class="choiceNumber" id="inputNumber" min="1" max="100"  value="10">
+    <input type="range" class="choiceNumber" id="rangeSetNumber" min="1" max="100"  value="10">
 </div>
 
 <%--<p class="text">Block size: </p>--%>
@@ -24,10 +24,10 @@
 
 
 <p class="text">Block size: </p>
-<p class="text" id="inNumber">10</p>
+<p class="text" id="sizeNumber">10</p>
 <div class="mainDiv">
     <div class="loadedImg">
-        <img class="im" id="forInput" src="" alt="RAWIMAGE">
+        <img class="imageIn" id="forInImage" src="" alt="RAWIMAGE">
         <%--        <span style="padding: 0px 280px;">&nbsp;</span>--%>
         <div class="DownloadBut">
             <a href="#" id="downloadLinkjpg" download="pixImage.jpg"></a>
@@ -38,7 +38,7 @@
             <a href="#" id="downloadLinkbmp" download="pixImage.bmp"></a>
             <button disabled="disabled" id="dwnBmp" class="button">Download<br>BMP</button>
         </div>
-        <img class="im" id="forOutput" src="" alt="PROCESSEDIMAGE">
+        <img class="imageOut" id="forOutImage" src="" alt="PROCESSEDIMAGE">
     </div>
 </div>
 <%--<br>--%>

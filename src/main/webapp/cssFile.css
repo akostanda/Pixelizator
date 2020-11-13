@@ -11,7 +11,10 @@ h1 {
     align-items: center;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /*padding: 200px;*/
+    /*padding-left: 200px;*/
+    /*padding-right: 200px;*/
+    /*justify-content: center;*/
 }
 
 .DownloadBut > * {
@@ -21,23 +24,30 @@ h1 {
 
 .loadedImg {
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     /*width: 100%;*/
     text-align: center;
 }
-#forInput {
+#forInImage {
     /*margin-top: 50px;*/
     vertical-align: top;
     border: 2px solid grey; /* Параметры границы */
     background: darkseagreen; /* Цвет фона */
     padding: 10px; /* Поля вокруг текста */
 }
-#forOutput {
+#forOutImage {
     /*margin-top: 75px;*/
     vertical-align: top;
     border: 2px solid grey; /* Параметры границы */
-    /*background: #fc3; !* Цвет фона *!*/
+    background: darkseagreen; /* Цвет фона */
     padding: 10px; /* Поля вокруг текста */
+}
+
+img {
+    min-height: 500px;
+    min-width: 500px;
+    max-height: 500px;
+    max-width: 500px;
 }
 
 body {

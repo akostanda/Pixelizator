@@ -1,7 +1,8 @@
-package world.ucode;
+package world.ucode.controller;
 
 import com.google.gson.Gson;
 import org.apache.commons.codec.binary.Base64;
+import world.ucode.model.PictureString;
 
 import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
@@ -24,11 +25,16 @@ import java.io.PrintWriter;
 public class MyServlet extends HttpServlet {
     private Gson gson = new Gson();
     private PrintWriter writer;
+    private Part filePart;
+    private int pixSize;
+    private String format;
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         writer = response.getWriter();
-        Part filePart = request.getPart("file");
+        filePart = request.getPart("file");
+        pixSize = Integer.parseInt(request.getHeader("sizePixel"));
+        format = request.getHeader("format");
         String jsonImage = getBytJason(filePart);
 
         if (filePart != null) {
@@ -49,7 +55,7 @@ public class MyServlet extends HttpServlet {
         String json;
         byte[] bytes;
 
-        ImageIO.write(bufferedImage, "png", baos);
+        ImageIO.write(bufferedImage, format, baos);
         bytes = baos.toByteArray();
         imageInString = Base64.encodeBase64String(bytes);
         pictureString.setImage(imageInString);
@@ -62,12 +68,12 @@ public class MyServlet extends HttpServlet {
         Raster src = bufferedImage.getData();
         WritableRaster dest = src.createCompatibleWritableRaster();
 
-        for (int y = 0; y < src.getHeight(); y += 15) {
-            for (int x = 0; x < src.getWidth(); x += 15) {
+        for (int y = 0; y < src.getHeight(); y += pixSize) {
+            for (int x = 0; x < src.getWidth(); x += pixSize) {
                 double[] pixel = new double[4];
                 pixel = src.getPixel(x, y, pixel);
-                for (int yd = y; (yd < y + 15) && (yd < dest.getHeight()); yd++) {
-                    for (int xd = x; (xd < x + 15) && (xd < dest.getWidth()); xd++) {
+                for (int yd = y; (yd < y + pixSize) && (yd < dest.getHeight()); yd++) {
+                    for (int xd = x; (xd < x + pixSize) && (xd < dest.getWidth()); xd++) {
                         dest.setPixel(xd, yd, pixel);
                     }
                 }
@@ -76,59 +82,4 @@ public class MyServlet extends HttpServlet {
         bufferedImage.setData(dest);
         return bufferedImage;
     }
-
-
-
-//    public class Pixelizator {
-//
-//        private InputStream fileContent = null;
-//        private String imageByte = null;
-//                private Pictures pic = null;
-//        private BufferedImage img = null;
-//        private byte[] bytes = null;
-//        private int pixsize = 1;
-//        private String format;
-//
-
-//        public Pixelizator(Part filePart, String pixsize, String format) throws IOException {
-//            fileContent = filePart.getInputStream();
-//            this.format = format;
-//            this.pixsize = Integer.parseInt(pixsize);
-//
-//
-//            if (fileContent != null) {
-//                Pixlate();
-//                imageByte = Base64.encodeBase64String(bytes);
-//            }
-//            pic = new Pictures();
-//            pic.setBase64Image(imageByte);
-//        }
-//
-//        public Pictures getImageByte() {
-//            return pic;
-//        }
-//
-//        private void Pixlate() throws IOException {
-//            img = ImageIO.read(fileContent);
-//            Raster src = img.getData();
-//            WritableRaster dest = src.createCompatibleWritableRaster();
-//
-//            for (int y = 0; y < src.getHeight(); y += pixsize) {
-//                for (int x = 0; x < src.getWidth(); x += pixsize) {
-//                    // Copy the pixel
-//                    double[] pixel = new double[4];
-//                    pixel = src.getPixel(x, y, pixel);
-//                    for (int yd = y; (yd < y + pixsize) && (yd < dest.getHeight()); yd++) {
-//                        for (int xd = x; (xd < x + pixsize) && (xd < dest.getWidth()); xd++) {
-//                            dest.setPixel(xd, yd, pixel);
-//                        }
-//                    }
-//                }
-//            }
-//            img.setData(dest);
-//            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-//            ImageIO.write(img, format, baos);
-//            bytes = baos.toByteArray();
-//        }
-//    }
 }

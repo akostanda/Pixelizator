@@ -16,7 +16,8 @@ My third project on Java, I don't know how it works!
 Open terminal and write into console:
     1. git clone https://github.com/Zemerr/Pixelizator
     2. cd Pixelizator
-    3. ./mvnw install
+    3. ./mvnw clean package
+    4. ./mvnw install
 ```
 
 ##Run

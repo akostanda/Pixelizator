@@ -11,7 +11,7 @@
 
     <name>Pixelizator Maven Webapp</name>
     <!-- FIXME change it to the project's website -->
-    <url>http://www.example.com</url>
+    <url>http://localhost:8080</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -87,7 +87,8 @@
                     <artifactId>tomcat7-maven-plugin</artifactId>
                     <version>2.2</version>
                     <configuration>
-                      <port>9090</port>
+                        <port>8080</port>
+                        <path>/</path>
                     </configuration>
                 </plugin>
           </plugins>

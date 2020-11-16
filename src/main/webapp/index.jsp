@@ -1,5 +1,6 @@
 <html>
 <link rel="stylesheet" href="cssFile.css">
+<link rel="icon" href="data:;base64,=">
 
 <head>
     <meta charset="UTF-8">
@@ -39,4 +40,3 @@
 
 <script src="javaScript/fetch.js"></script>
 </body>
-</html>

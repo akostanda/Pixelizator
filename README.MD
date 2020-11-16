@@ -17,7 +17,6 @@ Open terminal and write into console:
     1. git clone https://github.com/Zemerr/Pixelizator
     2. cd Pixelizator
     3. ./mvnw clean package
-    4. ./mvnw install
 ```
 
 ##Run

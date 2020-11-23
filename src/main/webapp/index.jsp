@@ -40,3 +40,4 @@
 
 <script src="javaScript/fetch.js"></script>
 </body>
+</html>
